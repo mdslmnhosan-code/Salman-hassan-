@@ -3043,15 +3043,8 @@ def main():
     app.add_handler(CallbackQueryHandler(button_callback))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
-    print("🚀 BOT RUNNING...")
-    PORT = int(os.environ.get("PORT", "8443"))
-app.run_webhook(
-    listen="0.0.0.0",
-    port=PORT,
-    webhook_url="https://salman-hassan.onrender.com",
-    allowed_updates=Update.ALL_TYPES
-)
-
+    print(" BOT RUNNING ...")
+    app.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == "__main__":
-    main()()
+    main()
